@@ -89,7 +89,7 @@ class Waiters:
     def take_order(self, tables_list, order_id, item_no):
         for i in range(len(tables_list)):
             if tables_list[i].state == 'free':
-                if self.no_of_free_waiters <= len(self.waiters):
+                if self.no_of_free_waiters > 0:
                     first_free_waiter_index = min([waiter['waiter_id'] for waiter in self.waiters
                                                    if waiter['status'] == 'free'])
                     self.waiters[first_free_waiter_index]['status'] == 'not_free'
